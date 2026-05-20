@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-teal: #0D9488;
+  --color-brand-indigo: #6366F1;
+  --color-brand-slate-900: #0F172A;
+  --color-brand-slate-50: #F8FAFC;
+  --color-brand-slate-200: #E2E8F0;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-slate-50 text-brand-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+/* Custom Theme Classes */
+.accent-text {
+  @apply text-brand-teal;
+}
+
+.accent-bg {
+  @apply bg-brand-teal text-white;
+}
+
+.card-border {
+  @apply border border-brand-slate-200 bg-white dark:bg-slate-900 dark:border-slate-800;
+}
+
+.skill-badge {
+  @apply bg-slate-100 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider text-slate-600;
+}
+
+.timeline-dot {
+  @apply w-2 h-2 bg-brand-teal rounded-full relative z-10;
+}
+
+.timeline-line {
+  @apply absolute left-[3px] top-2 bottom-[-20px] w-[2px] bg-brand-slate-200 z-0;
+}
+
+.input-field {
+  @apply bg-white border border-slate-300 rounded-md px-3 py-2 text-xs w-full transition-all focus:outline-none focus:ring-1 focus:ring-brand-teal focus:border-brand-teal;
+}
+
+/* Transitions */
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+}
